@@ -16,35 +16,134 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    var result_1 = ""
+    var re = 0 //判断是否是result的第一个
+    var judge = 0 //判断小数点是否出现过
+    var add = 0 // 判断符号
     @IBAction func number1(_ sender: Any) {
+        if re == 1{
+            result.text = "1"
+        }
+        else{
+            result.text = result.text! + "1"
+        }
+        
     }
     
     @IBAction func number2(_ sender: Any) {
+        if re == 1{
+            result.text = "2"
+        }
+        else{
+            result.text = result.text! + "2"
+        }
     }
     @IBAction func number3(_ sender: Any) {
+        if re == 1{
+            result.text = "3"
+        }
+        else{
+            result.text = result.text! + "3"
+        }
     }
     @IBAction func number4(_ sender: Any) {
+        if re == 1{
+            result.text = "4"
+        }
+        else{
+            result.text = result.text! + "4"
+        }
     }
     @IBAction func number5(_ sender: Any) {
+        if re == 1{
+            result.text = "5"
+        }
+        else{
+            result.text = result.text! + "5"
+        }
     }
     @IBAction func number6(_ sender: Any) {
+        if re == 1{
+            result.text = "6"
+        }
+        else{
+            result.text = result.text! + "6"
+        }
     }
     @IBAction func number7(_ sender: Any) {
+        if re == 1{
+            result.text = "7"
+        }
+        else{
+            result.text = result.text! + "7"
+        }
     }
     @IBAction func number8(_ sender: Any) {
+        if re == 1{
+            result.text = "8"
+        }
+        else{
+            result.text = result.text! + "8"
+        }
     }
     @IBAction func number9(_ sender: Any) {
+        if re == 1{
+            result.text = "9"
+        }
+        else{
+            result.text = result.text! + "9"
+        }
     }
     @IBAction func number0(_ sender: Any) {
+        if re == 1{
+            result.text = "0"
+        }
+        else{
+            result.text = result.text! + "0"
+        }
     }
     @IBAction func add(_ sender: Any) {
+        if add == 1
+        {
+            let a = Double (result_1)!
+            let b = Double (result.text!)!
+            let c = a + b
+            result_1 = String(c)
+            result.text = ""
+            re = 1
+        }
+        else{
+            if result.text == ""
+            {
+                result.text = "0"
+            }
+            else
+            {
+                let x = Double(result_1)!
+            }
+        }
     }
     @IBAction func subbtract(_ sender: Any) {
     }
     @IBAction func multiply(_ sender: Any) {
     }
     @IBAction func divide(_ sender: Any) {
+    }
+    @IBAction func equal(_ sender: Any) {
+    }
+    @IBAction func clear(_ sender: Any) {
+        result.text = ""
+    }
+    @IBAction func change(_ sender: Any) {
+    }
+    @IBAction func dot(_ sender: Any) {
+        if re == 1{
+            result.text = "0."
+        }
+        else{
+            result.text = result.text! + "."
+        }
+        judge = 1
     }
 }
 
