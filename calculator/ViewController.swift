@@ -112,7 +112,7 @@ class ViewController: UIViewController {
             result_1 = String(c)
             result.text = ""
             number = 1
-            re = 0
+            re = 1
         }
         else{
             if result.text == ""
@@ -125,7 +125,7 @@ class ViewController: UIViewController {
                 result_1=String(x)
                 result.text = ""
                 number = 1
-                re = 0
+                re = 1
                 add = 1
             }
         }
@@ -139,7 +139,7 @@ class ViewController: UIViewController {
             result_1 = String(c)
             result.text = ""
             number = 2
-            re = 0
+            re = 1
         }
         else{
             if result.text == ""
@@ -152,7 +152,7 @@ class ViewController: UIViewController {
                 result_1=String(x)
                 result.text = ""
                 number = 2
-                re = 0
+                re = 1
                 add = 1
             }
         }
@@ -166,7 +166,7 @@ class ViewController: UIViewController {
             result_1 = String(c)
             result.text = ""
             number = 3
-            re = 0
+            re = 1
         }
         else{
             if result.text == ""
@@ -179,7 +179,7 @@ class ViewController: UIViewController {
                 result_1=String(x)
                 result.text = ""
                 number = 3
-                re = 0
+                re = 1
                 add = 1
             }
         }
@@ -193,7 +193,7 @@ class ViewController: UIViewController {
             result_1 = String(c)
             result.text = ""
             number = 4
-            re = 0
+            re = 1
         }
         else{
             if result.text == ""
@@ -206,7 +206,7 @@ class ViewController: UIViewController {
                 result_1=String(x)
                 result.text = ""
                 number = 4
-                re = 0
+                re = 1
                 add = 1
             }
         }
@@ -231,18 +231,31 @@ class ViewController: UIViewController {
             let c = a / b
             result.text = String(c)
         }
+        judge = 1
+        re = 1
+        add = 0
     }
     @IBAction func clear(_ sender: Any) {
         result.text = ""
+        add = 0
+        re = 1
     }
     @IBAction func change(_ sender: Any) {
     }
     @IBAction func dot(_ sender: Any) {
-        if re == 1{
-            result.text = "0."
+        if result.text!.contains("."){
+            result.text = result.text!
         }
         else{
-            result.text = result.text! + "."
+            if result.text! == ""
+            {
+                result.text = "0."
+            }
+            else
+            {
+                result.text = result.text! + "."
+            }
+            
         }
         judge = 1
     }
