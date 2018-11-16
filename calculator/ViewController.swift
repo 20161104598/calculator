@@ -130,6 +130,7 @@ class ViewController: UIViewController {
             }
         }
     }
+
     @IBAction func subtract(_ sender: Any) {
         if add == 1
         {
@@ -217,18 +218,18 @@ class ViewController: UIViewController {
         if number == 1
         
         {
-            let c = a + b
+            let c = (a * 1000000 + b * 1000000) / 1000000
             result.text = String(c)
         }else if number == 2 {
             
-            let c = a - b
+            let c = (a * 1000000 - b * 1000000) / 1000000
             result.text = String(c)
         }else if number == 3
         {
-            let c = a * b
+            let c = ((a * 1000000) * (b * 1000000)) / 1000000000000
             result.text = String(c)
         }else if number == 4 {
-            let c = a / b
+            let c = (a * 1000000) / (b * 1000000)
             result.text = String(c)
         }
         judge = 1
@@ -241,6 +242,10 @@ class ViewController: UIViewController {
         re = 1
     }
     @IBAction func change(_ sender: Any) {
+        let count = Double (result.text!)!
+        let count2 = -count
+        result.text = String(count2)
+        re = 0
     }
     @IBAction func dot(_ sender: Any) {
         if result.text!.contains("."){
@@ -255,9 +260,15 @@ class ViewController: UIViewController {
             {
                 result.text = result.text! + "."
             }
-            
+            re = 0
         }
         judge = 1
+    }
+    @IBAction func percwnt(_ sender: Any) {
+        let count = Double (result.text!)!
+        let count2 = count * 0.01
+        result.text = String(count2)
+        re = 0
     }
 }
 
