@@ -9,7 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    
     @IBOutlet weak var result: UITextField!
     
     override func viewDidLoad() {
@@ -17,13 +18,14 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     var result_1 = ""
-    var re = 0 //判断是否是result的第一个
+    var re = 1 //判断是否是result的第一个
     var judge = 0 //判断小数点是否出现过
     var add = 0 // 判断符号次数
     var number = 0 //判断运算符
     @IBAction func number1(_ sender: Any) {
         if re == 1{
             result.text = "1"
+            re = 0
         }
         else{
             result.text = result.text! + "1"
@@ -34,6 +36,7 @@ class ViewController: UIViewController {
     @IBAction func number2(_ sender: Any) {
         if re == 1{
             result.text = "2"
+            re = 0
         }
         else{
             result.text = result.text! + "2"
@@ -42,6 +45,7 @@ class ViewController: UIViewController {
     @IBAction func number3(_ sender: Any) {
         if re == 1{
             result.text = "3"
+            re = 0
         }
         else{
             result.text = result.text! + "3"
@@ -50,6 +54,7 @@ class ViewController: UIViewController {
     @IBAction func number4(_ sender: Any) {
         if re == 1{
             result.text = "4"
+            re = 0
         }
         else{
             result.text = result.text! + "4"
@@ -58,6 +63,7 @@ class ViewController: UIViewController {
     @IBAction func number5(_ sender: Any) {
         if re == 1{
             result.text = "5"
+            re = 0
         }
         else{
             result.text = result.text! + "5"
@@ -66,6 +72,7 @@ class ViewController: UIViewController {
     @IBAction func number6(_ sender: Any) {
         if re == 1{
             result.text = "6"
+            re = 0
         }
         else{
             result.text = result.text! + "6"
@@ -74,6 +81,7 @@ class ViewController: UIViewController {
     @IBAction func number7(_ sender: Any) {
         if re == 1{
             result.text = "7"
+            re = 0
         }
         else{
             result.text = result.text! + "7"
@@ -82,6 +90,7 @@ class ViewController: UIViewController {
     @IBAction func number8(_ sender: Any) {
         if re == 1{
             result.text = "8"
+            re = 0
         }
         else{
             result.text = result.text! + "8"
@@ -90,6 +99,7 @@ class ViewController: UIViewController {
     @IBAction func number9(_ sender: Any) {
         if re == 1{
             result.text = "9"
+            re = 0
         }
         else{
             result.text = result.text! + "9"
@@ -213,31 +223,37 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func equal(_ sender: Any) {
-        let a = Double(result_1)!
-        let b = Double(result.text!)!
-        if number == 1
-        
-        {
-            let c = (a * 1000000 + b * 1000000) / 1000000
-            result.text = String(c)
-        }else if number == 2 {
-            
-            let c = (a * 1000000 - b * 1000000) / 1000000
-            result.text = String(c)
-        }else if number == 3
-        {
-            let c = ((a * 1000000) * (b * 1000000)) / 1000000000000
-            result.text = String(c)
-        }else if number == 4 {
-            let c = (a * 1000000) / (b * 1000000)
-            result.text = String(c)
+        if result.text == "0"{
+            result.text = "0"
         }
-        judge = 1
-        re = 1
-        add = 0
+        else{
+            let a = Double(result_1)!
+            let b = Double(result.text!)!
+            if number == 1
+                
+            {
+                let c = (a * 1000000 + b * 1000000) / 1000000
+                result.text = String(c)
+            }else if number == 2 {
+                
+                let c = (a * 1000000 - b * 1000000) / 1000000
+                result.text = String(c)
+            }else if number == 3
+            {
+                let c = ((a * 1000000) * (b * 1000000)) / 1000000000000
+                result.text = String(c)
+            }else if number == 4 {
+                let c = (a * 1000000) / (b * 1000000)
+                result.text = String(c)
+            }
+            judge = 1
+            re = 1
+            add = 0
+        }
+        
     }
     @IBAction func clear(_ sender: Any) {
-        result.text = ""
+        result.text = "0"
         add = 0
         re = 1
     }
@@ -265,10 +281,17 @@ class ViewController: UIViewController {
         judge = 1
     }
     @IBAction func percwnt(_ sender: Any) {
-        let count = Double (result.text!)!
-        let count2 = count * 0.01
-        result.text = String(count2)
-        re = 0
+        if result.text! == "0"
+        {
+            result.text = "0"
+        }
+        else{
+            let count = Double (result.text!)!
+            let count2 = count * 0.01
+            result.text = String(count2)
+            re = 0
+        }
+        
     }
 }
 
