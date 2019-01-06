@@ -19,7 +19,6 @@ class ViewController: UIViewController {
     }
     var result_1 = ""
     var re = 1 //判断是否是result的第一个
-    var judge = 0 //判断小数点是否出现过
     var add = 0 // 判断符号次数
     var number = 0 //判断运算符
     @IBAction func number1(_ sender: Any) {
@@ -116,24 +115,19 @@ class ViewController: UIViewController {
     @IBAction func add(_ sender: Any) {
         if add == 1
         {
-            let a = Double (result_1)!
-            let b = Double (result.text!)!
-            let c = a + b
-            result_1 = String(c)
-            result.text = ""
+            
+            equal(add)
             number = 1
-            re = 1
         }
         else{
-            if result.text == ""
+            if result.text == "0"
             {
                 result.text = "0"
             }
             else
             {
-                let x = Double(result.text!)!
-                result_1=String(x)
-                result.text = ""
+                result_1 = result.text!
+                result.text = result_1
                 number = 1
                 re = 1
                 add = 1
@@ -144,24 +138,19 @@ class ViewController: UIViewController {
     @IBAction func subtract(_ sender: Any) {
         if add == 1
         {
-            let a = Double (result_1)!
-            let b = Double (result.text!)!
-            let c = a - b
-            result_1 = String(c)
-            result.text = ""
+            
+            equal(add)
             number = 2
-            re = 1
         }
         else{
-            if result.text == ""
+            if result.text == "0"
             {
                 result.text = "0"
             }
             else
             {
-                let x = Double(result.text!)!
-                result_1=String(x)
-                result.text = ""
+                result_1 = result.text!
+                result.text = result_1
                 number = 2
                 re = 1
                 add = 1
@@ -171,24 +160,19 @@ class ViewController: UIViewController {
     @IBAction func multiply(_ sender: Any) {
         if add == 1
         {
-            let a = Double (result_1)!
-            let b = Double (result.text!)!
-            let c = a * b
-            result_1 = String(c)
-            result.text = ""
+            
+            equal(add)
             number = 3
-            re = 1
         }
         else{
-            if result.text == ""
+            if result.text == "0"
             {
                 result.text = "0"
             }
             else
             {
-                let x = Double(result.text!)!
-                result_1=String(x)
-                result.text = ""
+                result_1 = result.text!
+                result.text = result_1
                 number = 3
                 re = 1
                 add = 1
@@ -198,24 +182,19 @@ class ViewController: UIViewController {
     @IBAction func divide(_ sender: Any) {
         if add == 1
         {
-            let a = Double (result_1)!
-            let b = Double (result.text!)!
-            let c = a / b
-            result_1 = String(c)
-            result.text = ""
+            
+            equal(add)
             number = 4
-            re = 1
         }
         else{
-            if result.text == ""
+            if result.text == "0"
             {
                 result.text = "0"
             }
             else
             {
-                let x = Double(result.text!)!
-                result_1=String(x)
-                result.text = ""
+                result_1 = result.text!
+                result.text = result_1
                 number = 4
                 re = 1
                 add = 1
@@ -246,7 +225,15 @@ class ViewController: UIViewController {
                 let c = (a * 1000000) / (b * 1000000)
                 result.text = String(c)
             }
-            judge = 1
+            var show:String = result.text!
+            while show.last == "0"{
+                show.removeLast()
+            }
+            while show.last == "."{
+                show.removeLast()
+            }
+            result.text = show
+            result_1 = result.text!
             re = 1
             add = 0
         }
@@ -261,6 +248,14 @@ class ViewController: UIViewController {
         let count = Double (result.text!)!
         let count2 = -count
         result.text = String(count2)
+        var show:String = result.text!
+        while show.last == "0"{
+            show.removeLast()
+        }
+        while show.last == "."{
+            show.removeLast()
+        }
+        result.text = show
         re = 0
     }
     @IBAction func dot(_ sender: Any) {
@@ -278,7 +273,6 @@ class ViewController: UIViewController {
             }
             re = 0
         }
-        judge = 1
     }
     @IBAction func percwnt(_ sender: Any) {
         if result.text! == "0"
